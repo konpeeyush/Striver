@@ -82,7 +82,7 @@ public class Minimum_Spanning_Tree {
             contains[neighbour]=true ;
             for (Pair adjacentNeighbour:
                     adj.get(neighbour)) {
-                if(contains[adjacentNeighbour.getVertex()]==false && adjacentNeighbour.getWeight() < key[adjacentNeighbour.getVertex()]){
+                if(!contains[adjacentNeighbour.getVertex()] && adjacentNeighbour.getWeight() < key[adjacentNeighbour.getVertex()]){
                     parent[adjacentNeighbour.getVertex()]=neighbour;
                     key[adjacentNeighbour.getVertex()]=adjacentNeighbour.getWeight() ;
                     queue.add(new Pair(adjacentNeighbour.getVertex(),key[adjacentNeighbour.getVertex()])) ;
@@ -96,6 +96,7 @@ public class Minimum_Spanning_Tree {
 
     public static void main(String[] args) {
         makeGraph2 obj=new makeGraph2();
-        Prims(obj.adj, obj.n); ;
+        Prims(obj.adj, obj.n);
     }
 }
+
